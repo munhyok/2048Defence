@@ -4,6 +4,11 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
+    [SerializeField]
+    private GameObject[] towerPrefab;
+    [SerializeField]
+    private EnemySpawner enemySpawner;
+
     public GameObject[] n;
     public GameObject Quit;
     public Text Score, BestScore, Plus;
@@ -128,6 +133,9 @@ public class GameManager : MonoBehaviour {
         while (true) { x = Random.Range(0, 4); y = Random.Range(0, 4); if (Square[x, y] == null) break; }
         Square[x, y] = Instantiate(Random.Range(0, int.Parse(Score.text) > 800 ? 4 : 8) > 0 ? n[0] : n[1], new Vector3(0.9f * x - 1.35f, 0.9f * y - 1.35f, 0), Quaternion.identity);
         Square[x, y].GetComponent<Animator>().SetTrigger("Spawn");
+        //GameObject clone = Instantiate(towerPrefab, new Vector3(0.9f * x - 1.35f, 0.9f * y - 1.35f, 0), Quaternion.identity);
+
+        Square[x,y].GetComponent<TowerWeapons>().Setup(enemySpawner);
     }
 
     // 재시작

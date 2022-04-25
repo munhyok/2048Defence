@@ -52,7 +52,7 @@ MonoBehaviour:
     type: 3}
   spawnPoint: {fileID: 6202212821974576994}
   attackRate: 0.5
-  attackRange: 0.9
+  attackRange: 2
 --- !u!114 &-3170126612298269772
 MonoBehaviour:
   m_ObjectHideFlags: 0

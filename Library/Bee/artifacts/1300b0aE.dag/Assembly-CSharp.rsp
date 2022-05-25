@@ -356,6 +356,7 @@
 -r:"Library/Bee/artifacts/1300b0aE.dag/UnityEngine.UI.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aE.dag/UnityEngine.XR.LegacyInputHelpers.ref.dll"
 "Assets/Script/Enemy.cs"
+"Assets/Script/EnemyHP.cs"
 "Assets/Script/EnemySpawner.cs"
 "Assets/Script/GameManager.cs"
 "Assets/Script/Movement2D.cs"

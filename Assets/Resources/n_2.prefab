@@ -40,8 +40,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 543951783564816239}
-  - component: {fileID: -8307676477000950434}
   - component: {fileID: 6679508060684618913}
+  - component: {fileID: -8307676477000950434}
   - component: {fileID: 8884798123006162373}
   - component: {fileID: -7185986448989261401}
   m_Layer: 0
@@ -67,18 +67,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-8307676477000950434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5821247652894158949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7afdd4b00d170ae43a914a83d7afbc7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6679508060684618913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,8 +82,21 @@ MonoBehaviour:
   projectilePrefab: {fileID: 1064745116323350196, guid: 14fca1d908e5e428896086c47adaa4fc,
     type: 3}
   spawnPoint: {fileID: 8036211315773229037}
-  attackRate: 0.3
-  attackRange: 2
+  attackRate: 0.6
+  attackRange: 1
+  attackDamage: 8
+--- !u!114 &-8307676477000950434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5821247652894158949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7afdd4b00d170ae43a914a83d7afbc7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &8884798123006162373
 SpriteRenderer:
   m_ObjectHideFlags: 0

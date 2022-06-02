@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum WeaponState { SearchTarget = 0, AttackToTarget }
 
@@ -23,6 +24,7 @@ public class TowerWeapons : MonoBehaviour
     private int         level = 0;
     private WeaponState weaponState = WeaponState.SearchTarget;
     private Transform attackTarget = null;
+    private SpriteRenderer spriteRenderer;
     private EnemySpawner enemySpawner;
 
     public Sprite   TowerSprite => towerTemplate.weapon[level].sprite;
@@ -120,6 +122,14 @@ public class TowerWeapons : MonoBehaviour
         
         
         
+    }
+
+    public bool Upgrade()
+    {
+        level ++;
+        spriteRenderer.sprite = towerTemplate.weapon[level].sprite;
+        Debug.Log("test");
+        return true;
     }
 
 }

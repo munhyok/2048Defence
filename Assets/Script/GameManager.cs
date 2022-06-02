@@ -136,7 +136,7 @@ public class GameManager : MonoBehaviour {
     void Spawn()
     {
         while (true) { x = Random.Range(0, 4); y = Random.Range(0, 4); if (Square[x, y] == null) break; }
-        Square[x, y] = Instantiate(Random.Range(0, int.Parse(Score.text) > 800 ? 4 : 8) > 0 ? n[0] : n[1], new Vector3(0.9f * x - 1.35f, 0.9f * y - 1.35f, 0), Quaternion.identity);
+        Square[x, y] = Instantiate(Random.Range(0, int.Parse(Score.text) > 800 ? 4 : 8) > 0 ? towerTemplate[0].towerPrefab : towerTemplate[1].towerPrefab, new Vector3(0.9f * x - 1.35f, 0.9f * y - 1.35f, 0), Quaternion.identity);
         Square[x, y].GetComponent<Animator>().SetTrigger("Spawn");
         //GameObject clone = Instantiate(towerTemplate.towerPrefab, new Vector3(0.9f * x - 1.35f, 0.9f * y - 1.35f, 0), Quaternion.identity);
 

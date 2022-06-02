@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe78e1bdcce7bcb40bb12aa72dbe4480, type: 3}
+  m_Name: Tower256
+  m_EditorClassIdentifier: 
+  towerPrefab: {fileID: 8349495184043313178, guid: 0fd7c5b280be06546bea2225de173ed9,
+    type: 3}
+  weapon:
+  - sprite: {fileID: -1943210465, guid: 1ffa34fa7e242144cb1eb4b292dcdf3d, type: 3}
+    damage: 75
+    rate: 0.9
+    range: 5
+    cost: 0
+    speedSlow: 0
+    fireDamage: 2
+  - sprite: {fileID: 2028989058, guid: 2f5aac6fc7371d84d813ebd179a6f5b7, type: 3}
+    damage: 75
+    rate: 0.9
+    range: 5
+    cost: 0
+    speedSlow: 2
+    fireDamage: 0
+  - sprite: {fileID: 1387741362, guid: fe64d6260372d87418d5cba50d19ef5d, type: 3}
+    damage: 75
+    rate: 0.9
+    range: 5
+    cost: 0
+    speedSlow: 0
+    fireDamage: 0

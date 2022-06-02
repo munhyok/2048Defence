@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: -6860702550424218559}
   - component: {fileID: 6272677262790009473}
   - component: {fileID: 6144690259723011703}
+  - component: {fileID: 3220729757790235705}
   m_Layer: 0
   m_Name: n_3
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,11 +49,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b74cbbf33fa0d4a57995fe02115c9b9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 1064745116323350196, guid: 14fca1d908e5e428896086c47adaa4fc,
+  towerTemplate: {fileID: 11400000, guid: ce4225c2a49502a41837ea0e8c76d2e8, type: 2}
+  projectilePrefab: {fileID: 1064745116323350196, guid: 4f92661f6edff4cdeb6c651e33cfaab2,
     type: 3}
   spawnPoint: {fileID: 7625370281552586688}
-  attackRate: 0.5
-  attackRange: 2
 --- !u!114 &-6860702550424218559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,6 +137,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &3220729757790235705
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4108175385569689467}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.75, y: 0.75, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8544943420714908513
 GameObject:
   m_ObjectHideFlags: 0

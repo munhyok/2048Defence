@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TowerSpawner : MonoBehaviour
 {
+
     [SerializeField]
     private GameObject towerPrefab;
     [SerializeField]
@@ -20,6 +21,7 @@ public class TowerSpawner : MonoBehaviour
         }
 
         tile.IsBuildTower = true;*/
+        Vector3 position = tileTransform.position + Vector3.back;
         GameObject clone = Instantiate(towerPrefab, tileTransform.position, Quaternion.identity);
 
         clone.GetComponent<TowerWeapons>().Setup(enemySpawner);

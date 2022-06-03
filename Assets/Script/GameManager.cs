@@ -5,20 +5,26 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
 
     [SerializeField]
-    private GameObject[] towerPrefab;
+    private GameObject[] tower;
     [SerializeField]
     private EnemySpawner enemySpawner;
     [SerializeField]
     private TowerTemplate[] towerTemplate;
 
-    public GameObject[] n;
-    
+    private TowerWeapons currentTower;
+
+    //public GameObject[] n;
+
+    //public int enemyCount;    
+
     public GameObject Quit;
-    public Text Score, BestScore, Plus;
+    public Text Score, BestScore, Plus, countNum;
+    public AudioClip clip;
+    
 
     bool wait, move, stop;
     int x, y;
-
+    int number;
     int i;
 
     int k, l, j;
@@ -26,14 +32,28 @@ public class GameManager : MonoBehaviour {
     Vector3 firstPos, gap;
     GameObject[,] Square = new GameObject[4, 4];
 
+
+    void Awake()
+    {
+        
+    }
+
 	void Start () {
         Spawn();
         Spawn();
         BestScore.text = PlayerPrefs.GetInt("BestScore").ToString();
+        
     }
 
 	void Update () {
-
+        
+        int number = EnemySpawner.enemyCount;
+        countNum.text = number.ToString() + "/30";
+        if(number == 30)
+        {
+            stop = true; Quit.SetActive(true); return;
+        }
+        //Debug.Log(number);
         // 뒤로가기
         if (Input.GetKeyDown(KeyCode.Escape)) Application.Quit();
 
@@ -89,7 +109,7 @@ public class GameManager : MonoBehaviour {
                         {
                             // 모든 타일이 가득 차면 k가 0이 됨
                             if (Square[x, y] == null) { k++; continue; }
-                            if (Square[x, y].tag == "Combine") Square[x, y].tag = "Untagged";
+                            if (Square[x, y].tag == "Combine") Square[x, y].tag = "Tower";
                         }
                     if(k == 0)
                     {
@@ -98,6 +118,8 @@ public class GameManager : MonoBehaviour {
                         for (x = 0; x <= 3; x++) for (y = 0; y <= 2; y++) if (Square[x, y].name == Square[x, y + 1].name) l++;
                         if (l == 0) { stop = true; Quit.SetActive(true); return; }
                     }
+
+                    
                 }
             }
         }
@@ -119,16 +141,17 @@ public class GameManager : MonoBehaviour {
         if (Square[x1, y1] !=null && Square[x2, y2] != null && Square[x1, y1].name == Square[x2, y2].name && Square[x1, y1].tag != "Combine" && Square[x2, y2].tag != "Combine")
         {
             move = true;
-            for (j = 0; j <= 16; j++) if (Square[x2, y2].name == n[j].name + "(Clone)") break;
+            for (j = 0; j <= 16; j++) if (Square[x2, y2].name == towerTemplate[j].towerPrefab.name + "(Clone)") break;
             Square[x1, y1].GetComponent<Moving>().Move(x2, y2, true);
             Destroy(Square[x2, y2]);
             Square[x1, y1] = null;
-            Square[x2, y2] = Instantiate(n[j + 1], new Vector3(0.9f * x2 - 1.35f, 0.9f * y2 - 1.35f, 0), Quaternion.identity);
+            Square[x2, y2] = Instantiate(towerTemplate[j + 1].towerPrefab, new Vector3(0.9f * x2 - 1.35f, 0.9f * y2 - 1.35f, 0), Quaternion.identity);
             Square[x2, y2].tag = "Combine";
             Square[x2, y2].GetComponent<Animator>().SetTrigger("Combine");
 
             Square[x2,y2].GetComponent<TowerWeapons>().Setup(enemySpawner);
             score += (int)Mathf.Pow(2, j + 2);
+            SoundManager.instance.SFXPlay("marge", clip);
         }
     }
 
@@ -136,11 +159,12 @@ public class GameManager : MonoBehaviour {
     void Spawn()
     {
         while (true) { x = Random.Range(0, 4); y = Random.Range(0, 4); if (Square[x, y] == null) break; }
-        Square[x, y] = Instantiate(Random.Range(0, int.Parse(Score.text) > 800 ? 4 : 8) > 0 ? towerTemplate[0].towerPrefab : towerTemplate[1].towerPrefab, new Vector3(0.9f * x - 1.35f, 0.9f * y - 1.35f, 0), Quaternion.identity);
+        Square[x, y] = Instantiate(Random.Range(0, int.Parse(Score.text) > 800 ? 4 : 8) > 0 ? towerTemplate[0].towerPrefab : towerTemplate[1].towerPrefab, new Vector3(0.9f * x - 1.35f, 0.9f * y - 1.35f, 0), Quaternion.identity) as GameObject;
         Square[x, y].GetComponent<Animator>().SetTrigger("Spawn");
         //GameObject clone = Instantiate(towerTemplate.towerPrefab, new Vector3(0.9f * x - 1.35f, 0.9f * y - 1.35f, 0), Quaternion.identity);
-
+        //Square[x,y].GetComponent<TowerTemplate>();
         Square[x,y].GetComponent<TowerWeapons>().Setup(enemySpawner);
+
     }
 
     // 재시작

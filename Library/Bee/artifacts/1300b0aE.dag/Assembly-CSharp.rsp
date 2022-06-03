@@ -371,6 +371,7 @@
 "Assets/Script/ObjectDetector.cs"
 "Assets/Script/Projectile.cs"
 "Assets/Script/SliderPositionAutoSetter.cs"
+"Assets/Script/SoundManager.cs"
 "Assets/Script/TowerDataViewer.cs"
 "Assets/Script/TowerSpawner.cs"
 "Assets/Script/TowerTemplate.cs"

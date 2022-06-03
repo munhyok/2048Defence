@@ -23,11 +23,16 @@ public class TowerDataViewer : MonoBehaviour
     [SerializeField]
     private Button      buttonUpgrade;
 
+
+    private SpriteRenderer spriteRenderer;
     private TowerWeapons currentTower;
+
+    private GameManager GM;
 
     private void Awake()
     {
         OffPanel();
+        
 
     }
 
@@ -41,8 +46,11 @@ public class TowerDataViewer : MonoBehaviour
 
     public void OnPanel()
     {
+        
+        currentTower = GetComponent<TowerWeapons>();
+        
         gameObject.SetActive(true);
-
+        UpdateTowerData();
     }
 
     public void OffPanel()
@@ -52,17 +60,20 @@ public class TowerDataViewer : MonoBehaviour
 
     private void UpdateTowerData()
     {
+        
         imageTower.sprite = currentTower.TowerSprite;
     }
 
     public void OnClickEventTowerUpgrade()
     {
+        Debug.Log("clicktest");
         bool isSuccess = currentTower.Upgrade();
 
+        Debug.Log(isSuccess);
         if (isSuccess == true)
         {
-            UpdateTowerData();
-            Debug.Log("test");
+            //UpdateTowerData();
+            
         }
     }
     

@@ -17,7 +17,7 @@ MonoBehaviour:
   weapon:
   - sprite: {fileID: -1314403468, guid: 1ffa34fa7e242144cb1eb4b292dcdf3d, type: 3}
     damage: 16
-    rate: 0.9
+    rate: 0.1
     range: 5
     cost: 0
     speedSlow: 0
@@ -26,9 +26,9 @@ MonoBehaviour:
     damage: 15
     rate: 0.9
     range: 5
-    cost: 0
+    cost: 1
     speedSlow: 2
-    fireDamage: 0
+    fireDamage: 1
   - sprite: {fileID: 1604623471, guid: fe64d6260372d87418d5cba50d19ef5d, type: 3}
     damage: 15
     rate: 0.9

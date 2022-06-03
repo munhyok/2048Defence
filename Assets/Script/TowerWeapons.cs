@@ -15,18 +15,14 @@ public class TowerWeapons : MonoBehaviour
     private GameObject projectilePrefab;
     [SerializeField]
     private Transform spawnPoint;
-    //[SerializeField]
-    //private float attackRate = 0.5f;
-    //[SerializeField]
-    //private float attackRange = 2.0f;
-    //[SerializeField]
-    //private int attackDamage = 1;
+
     private int         level = 0;
     private WeaponState weaponState = WeaponState.SearchTarget;
     private Transform attackTarget = null;
     private SpriteRenderer spriteRenderer;
     private EnemySpawner enemySpawner;
 
+    public AudioClip  clip;
     public Sprite   TowerSprite => towerTemplate.weapon[level].sprite;
     public float    Damage      => towerTemplate.weapon[level].damage;
     public float    Rate        => towerTemplate.weapon[level].rate;
@@ -38,6 +34,8 @@ public class TowerWeapons : MonoBehaviour
 
     public void Setup(EnemySpawner enemySpawner)
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        
         this.enemySpawner = enemySpawner;
 
         ChangeState(WeaponState.SearchTarget);
@@ -126,9 +124,9 @@ public class TowerWeapons : MonoBehaviour
 
     public bool Upgrade()
     {
-        level ++;
+        level = 1;
         spriteRenderer.sprite = towerTemplate.weapon[level].sprite;
-        Debug.Log("test");
+        Debug.Log("upgrade test");
         return true;
     }
 

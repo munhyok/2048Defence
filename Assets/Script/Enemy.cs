@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     private Movement2D  movement2D;
     private EnemySpawner enemySpawner;
 
+    public AudioClip clip;
     public void Setup(EnemySpawner enemySpawner, Transform[] wayPoints)
     {
         movement2D = GetComponent<Movement2D>();
@@ -63,5 +64,6 @@ public class Enemy : MonoBehaviour
     public void OnDie()
     {
         enemySpawner.DestroyEnemy(this);
+        SoundManager.instance.SFXPlay("destroyed",clip);
     }
 }

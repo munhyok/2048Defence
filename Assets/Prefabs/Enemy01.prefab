@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06282da8f60a04d63853993907b9d516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: d6e06da0c3de083418f32c817b1e9931, type: 3}
 --- !u!114 &6791750268726919853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,3 +144,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 50
+  clip: {fileID: 8300000, guid: 16f01cf4ebe98254badf7aee6670a4f8, type: 3}

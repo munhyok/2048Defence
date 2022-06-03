@@ -17,13 +17,17 @@ public class EnemySpawner : MonoBehaviour
     private List<Enemy> enemyList;
 
     public List<Enemy> EnemyList => enemyList;
+    public static int enemyCount = 0;
 
-
+    private void update(){
+        
+    }
     private void Awake()
     {
         enemyList = new List<Enemy>();
-
+        enemyCount = 0;
         StartCoroutine("SpawnEnemy");
+        
 
     }
 
@@ -33,6 +37,8 @@ public class EnemySpawner : MonoBehaviour
         {
             GameObject clone = Instantiate(enemyPrefab);
             Enemy enemy = clone.GetComponent<Enemy>();
+            enemyCount ++;
+            
 
             enemy.Setup(this, wayPoints);
             enemyList.Add(enemy);
@@ -40,15 +46,19 @@ public class EnemySpawner : MonoBehaviour
             SpawnEnemyHPSlider(clone);
 
             yield return new WaitForSeconds(spawnTime);
+            //Debug.Log(enemyCount+1);
             
         }
+        
     }
 
     public void DestroyEnemy (Enemy enemy)
     {
         enemyList.Remove(enemy);
-
         Destroy(enemy.gameObject);
+        enemyCount --;
+        Debug.Log(enemyCount);
+        
     }
 
     private void SpawnEnemyHPSlider(GameObject enemy)

@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class TowerTemplate : ScriptableObject
 {
-    
+    [SerializeField]
     public GameObject towerPrefab;
     public Weapon[] weapon;
 

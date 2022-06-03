@@ -53,6 +53,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 1064745116323350196, guid: 4f92661f6edff4cdeb6c651e33cfaab2,
     type: 3}
   spawnPoint: {fileID: 7625370281552586688}
+  clip: {fileID: 8300000, guid: 16f01cf4ebe98254badf7aee6670a4f8, type: 3}
 --- !u!114 &-6860702550424218559
 MonoBehaviour:
   m_ObjectHideFlags: 0

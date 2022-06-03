@@ -26,7 +26,7 @@ MonoBehaviour:
     damage: 64
     rate: 0.9
     range: 5
-    cost: 0
+    cost: 1
     speedSlow: 2
     fireDamage: 0
   - sprite: {fileID: -643681553, guid: fe64d6260372d87418d5cba50d19ef5d, type: 3}

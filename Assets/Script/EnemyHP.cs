@@ -14,7 +14,7 @@ public class EnemyHP : MonoBehaviour
     public float    MaxHP => maxHP;
     public float    CurrentHP => currentHP;
 
-    
+    public AudioClip clip;
 
     private void Awake()
     {
@@ -38,6 +38,7 @@ public class EnemyHP : MonoBehaviour
             isDie = true;
             enemy.OnDie();
         }
+        SoundManager.instance.SFXPlay("hit", clip);
     }
 
 
